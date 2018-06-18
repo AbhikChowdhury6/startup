@@ -28,12 +28,14 @@ sudo ./../Programs/arduino/insall.sh
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
 sudo apt-get install -f
+sudo chown -R chowder:chowder /home/chowder
+find /home/chowder -type d -print0 | xargs -0 chmod 775
 rm google-chrome*
 
 #Nvidia stuff
 sudo add-apt-repository -y ppa:graphics-drivers/ppa
 sudo apt update
-sudo apt install -y nvidia$nvidiaVersion
+sudo apt install -y nvidia-$nvidiaVersion
 
 #amd stuff
 
@@ -43,7 +45,8 @@ sudo apt install -y nvidia$nvidiaVersion
 #tensorflow
 
 google-chrome https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=debnetwork
-sudo dpkg -i cuda*
+sudo apt-key add /var/cuda-repo-9-2-local/7fa2af80.pub
+sudo dpkg -i ~/Downloads/cuda*
 #use the latest
 google-chrome https://developer.nvidia.com/rdp/form/cudnn-download-survey
 
@@ -58,8 +61,8 @@ pip install -U matplotlib
 
 #atom
 wget https://atom.io/download/deb
-sudo dpkg -i atom*
-rm atom*
+sudo dpkg -i deb
+rm deb
 
 #node
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
