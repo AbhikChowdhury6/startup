@@ -3,7 +3,7 @@
 nvidiaVersion = "384"
 
 sudo apt install -y libxss1 libappindicator1 libindicator7
-sudo apt install -y htop tmux curl unity-tweak-tool
+sudo apt install -y htop tmux curl unity-tweak-tool arp-scan
 
 sudo apt-get install -y python3-pip python3-dev python-virtualenv
 sudo apt-get install -y python-pip python-dev
